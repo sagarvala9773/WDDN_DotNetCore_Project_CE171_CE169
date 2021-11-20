@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Q_A_system.Models.Quation>
+
+@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th>
+                Quation
+            </th>
+            <th>
+                Give Answer
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                <a asp-controller="Answers" asp-action="Index">@Html.DisplayFor(modelItem => item.Qname)</a>
+                </td>
+                <td>
+                    <button onclick="@("window.location.href='" + @Url.Action("Create", "Answers",new { id=item.Id}) + "'");">Answer</button>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Q_A_system.Models.Quation>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Quation-Type
+            </th>
+            <th>
+                Quation
+            </th>
+            
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qtype)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Qname)
+            </td>
+           
+            
+        </tr>
+}
+    </tbody>
+</table>
